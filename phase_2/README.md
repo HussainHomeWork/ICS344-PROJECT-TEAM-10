@@ -14,9 +14,11 @@ We collected the following critical system and application logs from the victim'
 - `/var/log/apache2/error.log` - Web server error events
 
 ![Victim logs integration into Splunk](screenshots/image1.png)
+
 Victim logs integration into Splunk
 
 ![Highlighted box indicating FTP attack events](screenshots/image2.png)
+
 Highlighted box indicating FTP attack events
 
 #### 1.2 Attacker Environment Logs
@@ -24,12 +26,15 @@ From the attacker's machine, we collected:
 - `framework.log` - Contains detailed records of attack execution and progression
 
 ![Logs inside attacker's machine](screenshots/image3.png)
+
 Logs inside attacker's machine
 
 ![Adding framework.log into Splunk](screenshots/image4.png)
+
 Adding framework.log into Splunk
 
 ![Integration of attacker's logs into Splunk](screenshots/image5.png)
+
 Integration of attacker's logs into Splunk
 
 ### 2. Network Traffic Capture
@@ -41,6 +46,7 @@ sudo tcpdump -i eth0 -l port 21 or port 80 > attack.log
 ```
 
 ![Attack.log created using tcpdump](screenshots/image6.png)
+
 Attack.log created using tcpdump
 
 This command specifically targeted FTP (port 21) and HTTP (port 80) traffic, capturing the attack sequence at the network level.
@@ -51,6 +57,7 @@ This command specifically targeted FTP (port 21) and HTTP (port 80) traffic, cap
 ### 1. Victim Machine Log Analysis
 
 ![Events Count vs Time gathered from victim's machine](screenshots/image7.png)
+
 Events Count vs Time gathered from victim's machine
 
 The visualization reveals a sudden increase of 4 events  at the moment of attack initiation. This is a clear indicator of compromise.
@@ -58,6 +65,7 @@ The visualization reveals a sudden increase of 4 events  at the moment of attack
 ### 2. Attacker Framework Log Analysis
 
 ![Sudden spike in log events within a short timeframe from attacker's machine](screenshots/image8.png)
+
 Sudden spike in log events within a short timeframe from attacker's machine
 
 The framework.log data visualization shows a concentrated burst of log events within an narrow timeframe. This pattern is typical of automated attack tools.
@@ -65,6 +73,7 @@ The framework.log data visualization shows a concentrated burst of log events wi
 ### 3. Network Traffic Pattern Analysis
 
 ![Activity captured from FTP and HTTP traffic in attack.log](screenshots/image9.png)
+
 Activity captured from FTP and HTTP traffic in attack.log
 
 Using Splunk's field extraction capabilities, we decomposed the network traffic to identify protocol-specific patterns:
@@ -73,11 +82,15 @@ Using Splunk's field extraction capabilities, we decomposed the network traffic 
 
 ![Chart categorizing activity into FTP or HTTP events](screenshots/image10.png)
 
+Chart categorizing activity into FTP or HTTP events
+
 We categorized all captured traffic by protocol type, revealing the attacker's focus on FTP services as the primary attack vector, with supplementary HTTP activity.
 
 #### 3.2 FTP Command Sequence Analysis
 
 ![Chart showing FTP events based on content](screenshots/image11.png)
+
+Chart showing FTP events based on content
 
 Further examination of FTP events revealed the specific command sequence used in the attack:
 
