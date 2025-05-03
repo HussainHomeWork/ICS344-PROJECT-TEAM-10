@@ -73,7 +73,7 @@
    ![setup 11](./screenshots/setup-11.png)
 
 6. **Connectivity Test**
-   - Pinged Metasploitable3 from Kali: `ping 192.168.1.X`
+   - Pinged Metasploitable3 from Kali: `ping 192.168.56.102`
    - Confirmed connectivity between machines
 
    ![setup 12](./screenshots/setup-12.png)
@@ -81,15 +81,14 @@
 ## Service Identification
 
 1. **Port Scanning**
-   - Ran Nmap scan: `nmap -sV 192.168.1.X`
-   - Identified FTP service running on port 21
-   - Detected version: IIS FTP
+   - Ran Nmap scan: `nmap -sV 192.168.56.102`
+   - Identified ProFTPD service running on port 21
 
    ![setup 13](./screenshots/setup-13.png)
 
 2. **Service Enumeration**
-   - Connected to FTP service: `ftp 192.168.1.X`
-   - Identified banner information
+   - Connected to FTP service: `ftp 192.168.56.102`
+   - Identified banner information showing ProFTPD 1.3.5
    - Attempted anonymous login
 
    ![setup 14](./screenshots/setup-14.png)
@@ -97,5 +96,5 @@
 ## Environment Verification
 
 - Both VMs are properly configured and can communicate with each other
-- Target service (FTP) is accessible from the attacker machine
+- Target service (ProFTPD 1.3.5) is accessible from the attacker machine
 - All tools required for the attack are installed and working correctly

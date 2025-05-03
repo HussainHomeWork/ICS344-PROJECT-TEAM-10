@@ -4,7 +4,7 @@ This folder contains our implementation of Phase 1 of the ICS344 course project,
 
 ## Service Selection
 
-For this project, we selected **IIS FTP** as our target service from the list of vulnerable services available on Metasploitable3.
+For this project, we selected **ProFTPD 1.3.5** as our target service from the list of vulnerable services available on Metasploitable3.
 
 ## Environment Setup
 
@@ -17,9 +17,9 @@ Detailed setup instructions and screenshots can be found in the [setup file](./s
 
 ## Attack Execution
 
-We performed two types of attacks on the IIS FTP service:
+We performed two types of attacks on the ProFTPD 1.3.5 service:
 
-1. **Using Metasploit Framework**: We utilized the built-in exploits in Metasploit to compromise the FTP service.
-2. **Custom Script**: We developed a custom Python script that automates the exploitation process.
+1. **Using Metasploit Framework**: We utilized the `proftpd_modcopy_exec` exploit in Metasploit to compromise the FTP service.
+2. **Custom Script**: We developed a custom Bash script that automates the exploitation process using the same vulnerability.
 
-Detailed attack documentation and screenshots can be found in the [attack file](./attack.md).
+Detailed attack documentation and screenshots can be found in the [attack file](./attack.md) and [custom script documentation](./custom_script.md).

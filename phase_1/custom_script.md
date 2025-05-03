@@ -1,6 +1,6 @@
 # Custom Script Exploitation
 
-This document details our custom script approach for exploiting the Microsoft IIS FTP service vulnerability on Metasploitable3.
+This document details our custom script approach for exploiting the **ProFTPD 1.3.5** service vulnerability on Metasploitable3.
 
 ## Script Implementation
 
