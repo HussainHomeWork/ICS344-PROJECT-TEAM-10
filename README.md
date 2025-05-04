@@ -1,6 +1,6 @@
 # ICS344 Course Project
 
-- Group Number: 10
+- Group Number: 6
 - Section: 4
 - Instructor: Farag Azzedin
 - Semester: 242
